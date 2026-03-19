@@ -11,7 +11,10 @@
 
   <nav>
     <a href="index.html" class="logo">CITY <span>CARS</span></a>
-    <ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menü öffnen" onclick="document.getElementById('nav-menu').classList.toggle('open');this.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="nav-menu">
       <li><a href="index.html">Start</a></li>
       <li><a href="autos.html">Autos</a></li>
       <li><a href="services.html" class="active">Services</a></li>
@@ -81,7 +84,7 @@
     <div class="cta-inner">
       <div>
         <h2>Termin vereinbaren?<br>Rufen Sie uns an.</h2>
-        <p>03381 XXXX – wir freuen uns auf Ihren Anruf.</p>
+        <p>03381 715500 – wir freuen uns auf Ihren Anruf.</p>
       </div>
       <a href="kontakt.html" class="cta-btn">Zur Kontaktseite →</a>
     </div>

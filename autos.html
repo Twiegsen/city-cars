@@ -142,7 +142,10 @@
 
   <nav>
     <a href="index.html" class="logo">CITY <span>CARS</span></a>
-    <ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menü öffnen" onclick="document.getElementById('nav-menu').classList.toggle('open');this.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="nav-menu">
       <li><a href="index.html">Start</a></li>
       <li><a href="autos.html" class="active">Autos</a></li>
       <li><a href="services.html">Services</a></li>

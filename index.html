@@ -11,7 +11,10 @@
 
   <nav>
     <a href="index.html" class="logo">CITY <span>CARS</span></a>
-    <ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menü öffnen" onclick="document.getElementById('nav-menu').classList.toggle('open');this.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="nav-menu">
       <li><a href="index.html" class="active">Start</a></li>
       <li><a href="autos.html">Autos</a></li>
       <li><a href="services.html">Services</a></li>
@@ -19,7 +22,7 @@
     </ul>
   </nav>
 
-  <!-- HERO   -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-tag">Ihr Gebrauchtwagenhandel</div>
@@ -40,7 +43,7 @@
         <div class="stat-label">Fahrzeuge verfügbar</div>
       </div>
       <div>
-        <div class="stat-number">30+</div>
+        <div class="stat-number">15+</div>
         <div class="stat-label">Jahre Erfahrung</div>
       </div>
       <div>

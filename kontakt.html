@@ -11,7 +11,10 @@
 
   <nav>
     <a href="index.html" class="logo">CITY <span>CARS</span></a>
-    <ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menü öffnen" onclick="document.getElementById('nav-menu').classList.toggle('open');this.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="nav-menu">
       <li><a href="index.html">Start</a></li>
       <li><a href="autos.html">Autos</a></li>
       <li><a href="services.html">Services</a></li>
@@ -39,7 +42,7 @@
           </div>
           <div>
             <span class="contact-item-label">Adresse</span>
-            <span class="contact-item-value">Straße<br>Stadt</span>
+            <span class="contact-item-value">Upstallstraße 10<br>14772 Brandenburg an der Havel</span>
           </div>
         </div>
         <div class="contact-item">
@@ -50,7 +53,7 @@
           </div>
           <div>
             <span class="contact-item-label">Telefon</span>
-            <span class="contact-item-value"><a href="tel:+493381XXXXX">03381 XXXXX</a></span>
+            <span class="contact-item-value"><a href="tel:+493381715500">03381 715500</a></span>
           </div>
         </div>
         <div class="contact-item">
@@ -62,7 +65,7 @@
           </div>
           <div>
             <span class="contact-item-label">E-Mail</span>
-            <span class="contact-item-value"><a href="mailto:mail@mail.de">mail@mail.de</a></span>
+            <span class="contact-item-value"><a href="/cdn-cgi/l/email-protection#2a49435e53494b58596a48584b444e4f44485f584d044e4f"><span class="__cf_email__" data-cfemail="bfdcd6cbc6dcdecdccffddcdded1dbdad1ddcacdd891dbda">[email&#160;protected]</span></a></span>
           </div>
         </div>
       </div>
@@ -82,7 +85,7 @@
 
       <div class="map-card">
         <iframe
-          src="https://www..com/maps/embed?pb=!1m18!1m12!1m3!1d2438.5!2d12.5489!3d52.4181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a8c11af88ca8bd%3A0xf67864cce9d02fab!2sUpstallstra%C3%9Fe%2010%2C%2014772%20Brandenburg%20an%20der%20Havel!5e0!3m2!1sde!2sde!4v1"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2438.5!2d12.5489!3d52.4181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a8c11af88ca8bd%3A0xf67864cce9d02fab!2sUpstallstra%C3%9Fe%2010%2C%2014772%20Brandenburg%20an%20der%20Havel!5e0!3m2!1sde!2sde!4v1"
           allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
@@ -124,7 +127,7 @@
     <p>&copy; 2025 <span>City Cars</span> – Alle Rechte vorbehalten.</p>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const dayMap = ['so','mo','di','mi','do','fr','sa'];
     const today = dayMap[new Date().getDay()];
     const row = document.getElementById('row-' + today);
@@ -133,11 +136,4 @@
     function handleSubmit() {
       const name = document.getElementById('vorname').value.trim();
       const email = document.getElementById('email').value.trim();
-      const msg = document.getElementById('nachricht').value.trim();
-      if (!name || !email || !msg) { alert('Bitte füllen Sie alle Pflichtfelder aus.'); return; }
-      alert('Vielen Dank, ' + name + '! Ihre Nachricht wurde gesendet. Wir melden uns bald bei Ihnen.');
-    }
-  </script>
-
-</body>
-</html>
+      const msg = document.getElementById('nachricht').v
