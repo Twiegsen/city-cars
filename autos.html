@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unsere Autos – City Cars</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .autos-layout {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .filter-sidebar {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: sticky;
+      top: 84px;
+    }
+    .filter-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 20px;
+      border-bottom: 1px solid #f0f0f3;
+    }
+    .filter-header h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .filter-reset {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--pink);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      text-decoration: underline;
+      display: none;
+    }
+    .filter-reset.visible { display: block; }
+    .filter-group {
+      padding: 16px 20px;
+      border-bottom: 1px solid #f0f0f3;
+    }
+    .filter-group:last-child { border-bottom: none; }
+    .filter-group-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 10px;
+    }
+    .filter-select {
+      width: 100%;
+      padding: 9px 32px 9px 12px;
+      border: 1.5px solid #e4e4e8;
+      border-radius: 7px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 14px;
+      color: var(--dark);
+      background: var(--white);
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%236b6b74' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .filter-select:focus { border-color: var(--pink); }
+    .filter-select.active { border-color: var(--pink); color: var(--pink); font-weight: 500; }
+    .price-range {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .results-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .results-count {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .results-count span { color: var(--pink); }
+    .sort-select {
+      padding: 8px 32px 8px 12px;
+      border: 1.5px solid #e4e4e8;
+      border-radius: 7px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 13px;
+      color: var(--mid);
+      background: var(--white);
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%236b6b74' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      cursor: pointer;
+      outline: none;
+    }
+    .sort-select:focus { border-color: var(--pink); }
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--gray);
+      font-size: 15px;
+    }
+    .no-results strong {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    @media (max-width: 800px) {
+      .autos-layout { grid-template-columns: 1fr; }
+      .filter-sidebar { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">CITY <span>CARS</span></a>
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="autos.html" class="active">Autos</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <h1>Unsere <span>Fahrzeuge</span></h1>
+    <p>Aktuelle Angebote von City Cars – direkt auf mobile.de</p>
+  </div>
+
+  <div class="autos-layout">
+
+    <!-- FILTER SIDEBAR -->
+    <aside class="filter-sidebar">
+      <div class="filter-header">
+        <h3>Filter</h3>
+        <button class="filter-reset" id="resetBtn" onclick="resetFilters()">Zurücksetzen</button>
+      </div>
+
+      <div class="filter-group">
+        <div class="filter-group-title">Marke</div>
+        <select class="filter-select" id="filterMarke" onchange="applyFilters()">
+          <option value="">Alle Marken</option>
+          <option value="Volkswagen">Volkswagen</option>
+          <option value="Mercedes-Benz">Mercedes-Benz</option>
+          <option value="Seat">Seat</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <div class="filter-group-title">Fahrzeugtyp</div>
+        <select class="filter-select" id="filterTyp" onchange="applyFilters()">
+          <option value="">Alle Typen</option>
+          <option value="Kombi">Kombi</option>
+          <option value="Van">Van / Minibus</option>
+          <option value="Limousine">Limousine</option>
+          <option value="SUV">SUV / Geländewagen</option>
+          <option value="Sportwagen">Sportwagen / Coupé</option>
+          <option value="Kleinwagen">Kleinwagen</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <div class="filter-group-title">Preis</div>
+        <div class="price-range">
+          <select class="filter-select" id="filterPreisMin" onchange="applyFilters()">
+            <option value="">Ab</option>
+            <option value="5000">5.000 €</option>
+            <option value="8000">8.000 €</option>
+            <option value="10000">10.000 €</option>
+            <option value="12000">12.000 €</option>
+            <option value="15000">15.000 €</option>
+          </select>
+          <select class="filter-select" id="filterPreisMax" onchange="applyFilters()">
+            <option value="">Bis</option>
+            <option value="10000">10.000 €</option>
+            <option value="12000">12.000 €</option>
+            <option value="15000">15.000 €</option>
+            <option value="17500">17.500 €</option>
+            <option value="20000">20.000 €</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <div class="filter-group-title">Kilometerstand</div>
+        <select class="filter-select" id="filterKm" onchange="applyFilters()">
+          <option value="">Beliebig</option>
+          <option value="50000">Bis 50.000 km</option>
+          <option value="75000">Bis 75.000 km</option>
+          <option value="100000">Bis 100.000 km</option>
+          <option value="125000">Bis 125.000 km</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <div class="filter-group-title">Baujahr ab</div>
+        <select class="filter-select" id="filterJahr" onchange="applyFilters()">
+          <option value="">Beliebig</option>
+          <option value="2010">2010</option>
+          <option value="2012">2012</option>
+          <option value="2015">2015</option>
+          <option value="2017">2017</option>
+        </select>
+      </div>
+    </aside>
+
+    <!-- ERGEBNISSE -->
+    <div>
+      <div class="results-header">
+        <div class="results-count"><span id="countNum">3</span> Fahrzeuge</div>
+        <select class="sort-select" id="sortSelect" onchange="applyFilters()">
+          <option value="default">Sortierung: Standard</option>
+          <option value="preis-asc">Preis: günstigste zuerst</option>
+          <option value="preis-desc">Preis: teuerste zuerst</option>
+          <option value="km-asc">Kilometerstand: niedrigste zuerst</option>
+          <option value="km-desc">Kilometerstand: höchste zuerst</option>
+          <option value="jahr-desc">Baujahr: neueste zuerst</option>
+          <option value="jahr-asc">Baujahr: älteste zuerst</option>
+        </select>
+      </div>
+
+      <!--
+        HINWEIS FÜR NEUE AUTOS – diese data-Attribute pro Karte ausfüllen:
+          data-marke  = Markenname, z.B. "Volkswagen"
+          data-typ    = Kombi / Van / Limousine / SUV / Sportwagen / Kleinwagen
+          data-preis  = Preis als reine Zahl, z.B. 16750
+          data-km     = Kilometerstand als reine Zahl, z.B. 84300
+          data-jahr   = Baujahr als reine Zahl, z.B. 2017
+      -->
+      <div class="cars-grid" id="carsGrid">
+
+        <!-- VW Golf -->
+        <div class="car-card" data-marke="Volkswagen" data-typ="Van" data-preis="16750" data-km="84300" data-jahr="2017">
+          <img class="car-card__image" src="https://img.classistatic.de/api/v1/mo-prod/images/c6/c6aa5371-0241-4a5f-a18a-4962a83dd340?rule=mo-1600" alt="Volkswagen Golf Sportsvan VII Highline">
+          <div class="car-card__body">
+            <div class="car-card__title">Volkswagen Golf Sportsvan VII</div>
+            <div class="car-card__subtitle">Highline · Automatik · Panoramadach</div>
+            <div class="car-card__specs">
+              <span class="spec-pill">2017</span>
+              <span class="spec-pill">84.300 km</span>
+            </div>
+            <div class="car-card__footer">
+              <div class="car-card__price">16.750 €</div>
+              <a class="btn-inserat" href="https://home.mobile.de/home/vip?sb=rel&od=up&customerId=29067663&vc=Car&searchId=475e5de4-0276-189e-26ca-d0b9dcc9b40b&ref=srp&id=450026526" target="_blank">
+                Zum Inserat
+                <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mercedes E200 -->
+        <div class="car-card" data-marke="Mercedes-Benz" data-typ="Kombi" data-preis="14990" data-km="117000" data-jahr="2012">
+          <img class="car-card__image" src="https://img.classistatic.de/api/v1/mo-prod/images/d5/d56862c7-0400-4b5d-8560-32e4ff664d59?rule=mo-1600" alt="Mercedes-Benz E 200 T Avantgarde">
+          <div class="car-card__body">
+            <div class="car-card__title">Mercedes-Benz E 200 T</div>
+            <div class="car-card__subtitle">Avantgarde · Automatik · Schiebedach · Navi</div>
+            <div class="car-card__specs">
+              <span class="spec-pill">2012</span>
+              <span class="spec-pill">117.000 km</span>
+            </div>
+            <div class="car-card__footer">
+              <div class="car-card__price">14.990 €</div>
+              <a class="btn-inserat" href="https://home.mobile.de/home/vip?sb=rel&od=up&customerId=29067663&vc=Car&searchId=363881d5-a9d4-e8d4-5855-3c2e34841637&ref=srp&id=450228671" target="_blank">
+                Zum Inserat
+                <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seat Altea -->
+        <div class="car-card" data-marke="Seat" data-typ="Van" data-preis="8990" data-km="76000" data-jahr="2011">
+          <img class="car-card__image" src="https://img.classistatic.de/api/v1/mo-prod/images/00/006970e9-83c3-4b0d-961f-6e48f3a2b5d6?rule=mo-1600" alt="Seat Altea XL Style Copa">
+          <div class="car-card__body">
+            <div class="car-card__title">Seat Altea XL Style Copa</div>
+            <div class="car-card__subtitle">1. Hand · Navi · AHK · Scheckheft gepflegt</div>
+            <div class="car-card__specs">
+              <span class="spec-pill">2011</span>
+              <span class="spec-pill">76.000 km</span>
+            </div>
+            <div class="car-card__footer">
+              <div class="car-card__price">8.990 €</div>
+              <a class="btn-inserat" href="https://home.mobile.de/home/vip?sb=rel&od=up&customerId=29067663&vc=Car&searchId=9cd9ecc9-9298-6228-4c5a-893b647f9361&ref=srp&id=450285891" target="_blank">
+                Zum Inserat
+                <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="no-results" id="noResults">
+        <strong>Keine Fahrzeuge gefunden</strong>
+        Versuche andere Filtereinstellungen.
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 <span>City Cars</span> – Alle Rechte vorbehalten.</p>
+  </footer>
+
+  <script>
+    function applyFilters() {
+      const marke    = document.getElementById('filterMarke').value;
+      const typ      = document.getElementById('filterTyp').value;
+      const preisMin = parseInt(document.getElementById('filterPreisMin').value) || 0;
+      const preisMax = parseInt(document.getElementById('filterPreisMax').value) || Infinity;
+      const kmMax    = parseInt(document.getElementById('filterKm').value) || Infinity;
+      const jahrMin  = parseInt(document.getElementById('filterJahr').value) || 0;
+      const sort     = document.getElementById('sortSelect').value;
+
+      const grid  = document.getElementById('carsGrid');
+      const cards = Array.from(grid.querySelectorAll('.car-card'));
+
+      let visible = cards.filter(card => {
+        if (marke && card.dataset.marke !== marke) return false;
+        if (typ   && card.dataset.typ   !== typ)   return false;
+        const preis = parseInt(card.dataset.preis);
+        const km    = parseInt(card.dataset.km);
+        const jahr  = parseInt(card.dataset.jahr);
+        if (preis < preisMin || preis > preisMax) return false;
+        if (km    > kmMax)   return false;
+        if (jahr  < jahrMin) return false;
+        return true;
+      });
+
+      visible.sort((a, b) => {
+        const aP = parseInt(a.dataset.preis), bP = parseInt(b.dataset.preis);
+        const aK = parseInt(a.dataset.km),    bK = parseInt(b.dataset.km);
+        const aJ = parseInt(a.dataset.jahr),  bJ = parseInt(b.dataset.jahr);
+        if (sort === 'preis-asc')  return aP - bP;
+        if (sort === 'preis-desc') return bP - aP;
+        if (sort === 'km-asc')     return aK - bK;
+        if (sort === 'km-desc')    return bK - aK;
+        if (sort === 'jahr-desc')  return bJ - aJ;
+        if (sort === 'jahr-asc')   return aJ - bJ;
+        return 0;
+      });
+
+      cards.forEach(c => c.style.display = 'none');
+      visible.forEach(c => { c.style.display = ''; grid.appendChild(c); });
+
+      document.getElementById('countNum').textContent = visible.length;
+      document.getElementById('noResults').style.display = visible.length === 0 ? 'block' : 'none';
+
+      const isFiltered = marke || typ || preisMin || preisMax < Infinity || kmMax < Infinity || jahrMin;
+      document.getElementById('resetBtn').classList.toggle('visible', !!isFiltered);
+
+      ['filterMarke','filterTyp','filterPreisMin','filterPreisMax','filterKm','filterJahr'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.toggle('active', !!el.value);
+      });
+    }
+
+    function resetFilters() {
+      ['filterMarke','filterTyp','filterPreisMin','filterPreisMax','filterKm','filterJahr'].forEach(id => {
+        document.getElementById(id).value = '';
+      });
+      document.getElementById('sortSelect').value = 'default';
+      applyFilters();
+    }
+  </script>
+
+</body>
+</html>

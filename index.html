@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City Cars – Ihr Gebrauchtwagenhandel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">CITY <span>CARS</span></a>
+    <ul>
+      <li><a href="index.html" class="active">Start</a></li>
+      <li><a href="autos.html">Autos</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">Ihr Gebrauchtwagenhandel</div>
+      <h1>Ihr nächstes Auto<br>wartet auf <span>Sie.</span></h1>
+      <p>Geprüfte Gebrauchtwagen zu fairen Preisen. Persönliche Beratung, transparente Abwicklung.</p>
+      <a href="autos.html" class="hero-cta">
+        Fahrzeuge ansehen
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div>
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Fahrzeuge verfügbar</div>
+      </div>
+      <div>
+        <div class="stat-number">30+</div>
+        <div class="stat-label">Jahre Erfahrung</div>
+      </div>
+      <div>
+        <div class="stat-number">1.000+</div>
+        <div class="stat-label">Zufriedene Kunden</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDESHOW -->
+  <section class="slideshow-section">
+    <div class="slideshow-header">
+      <div class="section-label">Aktuelle Angebote</div>
+      <h2 class="section-title">Fahrzeuge im Überblick</h2>
+    </div>
+
+    <div class="slideshow-wrapper">
+      <div class="slideshow-track" id="track">
+
+        <!-- Slide 1: VW Golf -->
+        <a class="slide" href="https://home.mobile.de/home/vip?sb=rel&od=up&customerId=29067663&vc=Car&searchId=475e5de4-0276-189e-26ca-d0b9dcc9b40b&ref=srp&id=450026526" target="_blank">
+          <img class="slide-image" src="https://img.classistatic.de/api/v1/mo-prod/images/c6/c6aa5371-0241-4a5f-a18a-4962a83dd340?rule=mo-1600" alt="Volkswagen Golf Sportsvan">
+          <div class="slide-content">
+            <div class="slide-brand">Volkswagen</div>
+            <div class="slide-title">Golf Sportsvan VII<br>Highline</div>
+            <div class="slide-specs">
+              <span class="slide-spec">2017</span>
+              <span class="slide-spec">84.300 km</span>
+              <span class="slide-spec">Automatik</span>
+              <span class="slide-spec">Panoramadach</span>
+            </div>
+            <div class="slide-price">16.750 €</div>
+            <span class="slide-btn">
+              Zum Inserat
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Slide 2: Mercedes E200 -->
+        <a class="slide" href="https://home.mobile.de/home/vip?sb=rel&od=up&customerId=29067663&vc=Car&searchId=363881d5-a9d4-e8d4-5855-3c2e34841637&ref=srp&id=450228671" target="_blank">
+          <img class="slide-image" src="https://img.classistatic.de/api/v1/mo-prod/images/d5/d56862c7-0400-4b5d-8560-32e4ff664d59?rule=mo-1600" alt="Mercedes-Benz E 200 T">
+          <div class="slide-content">
+            <div class="slide-brand">Mercedes-Benz</div>
+            <div class="slide-title">E 200 T<br>Avantgarde</div>
+            <div class="slide-specs">
+              <span class="slide-spec">2012</span>
+              <span class="slide-spec">117.000 km</span>
+              <span class="slide-spec">Automatik</span>
+              <span class="slide-spec">Schiebedach</span>
+            </div>
+            <div class="slide-price">14.990 €</div>
+            <span class="slide-btn">
+              Zum Inserat
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Slide 3: Seat Altea -->
+        <a class="slide" href="https://home.mobile.de/home/vip?sb=rel&od=up&customerId=29067663&vc=Car&searchId=9cd9ecc9-9298-6228-4c5a-893b647f9361&ref=srp&id=450285891" target="_blank">
+          <img class="slide-image" src="https://img.classistatic.de/api/v1/mo-prod/images/00/006970e9-83c3-4b0d-961f-6e48f3a2b5d6?rule=mo-1600" alt="Seat Altea XL">
+          <div class="slide-content">
+            <div class="slide-brand">Seat</div>
+            <div class="slide-title">Altea XL<br>Style Copa</div>
+            <div class="slide-specs">
+              <span class="slide-spec">2011</span>
+              <span class="slide-spec">76.000 km</span>
+              <span class="slide-spec">1. Hand</span>
+              <span class="slide-spec">Navi</span>
+            </div>
+            <div class="slide-price">8.990 €</div>
+            <span class="slide-btn">
+              Zum Inserat
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="slideshow-controls">
+      <button class="slide-arrow" id="prev" aria-label="Zurück">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="slide-dot active" data-index="0" aria-label="Slide 1"></button>
+      <button class="slide-dot" data-index="1" aria-label="Slide 2"></button>
+      <button class="slide-dot" data-index="2" aria-label="Slide 3"></button>
+      <button class="slide-arrow" id="next" aria-label="Weiter">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- NAV CARDS -->
+  <section class="nav-section">
+    <div class="section-label">Was wir bieten</div>
+    <h2 class="section-title">Entdecken Sie City Cars</h2>
+
+    <div class="nav-cards">
+      <a href="autos.html" class="nav-card">
+        <div class="nav-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 17H3v-5l2-5h14l2 5v5h-2"/>
+            <circle cx="7.5" cy="17.5" r="1.5"/>
+            <circle cx="16.5" cy="17.5" r="1.5"/>
+            <path d="M5 12h14"/>
+          </svg>
+        </div>
+        <div class="nav-card__title">Unsere Autos</div>
+        <div class="nav-card__desc">Geprüfte Gebrauchtwagen von namhaften Herstellern. Alle Fahrzeuge direkt auf mobile.de einsehbar.</div>
+        <div class="nav-card__arrow">Fahrzeuge ansehen →</div>
+      </a>
+
+      <a href="services.html" class="nav-card">
+        <div class="nav-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+          </svg>
+        </div>
+        <div class="nav-card__title">Unsere Services</div>
+        <div class="nav-card__desc">Von der Fahrzeuganmeldung bis zur Aufbereitung – wir begleiten Sie durch den gesamten Kauf.</div>
+        <div class="nav-card__arrow">Services entdecken →</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-strip">
+    <div class="cta-inner">
+      <div>
+        <h2>Haben Sie Fragen?<br>Wir sind für Sie da.</h2>
+        <p>Persönliche Beratung – vor Ort oder telefonisch.</p>
+      </div>
+      <a href="kontakt.html" class="cta-btn">Kontakt aufnehmen →</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 <span>City Cars</span> – Alle Rechte vorbehalten.</p>
+  </footer>
+
+  <script>
+    const track = document.getElementById('track');
+    const dots  = document.querySelectorAll('.slide-dot');
+    const total = dots.length;
+    let current = 0;
+    let timer;
+
+    function goTo(index) {
+      current = (index + total) % total;
+      track.style.transform = 'translateX(-' + current * 100 + '%)';
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    function startAuto() {
+      timer = setInterval(next, 4500);
+    }
+
+    function resetAuto() {
+      clearInterval(timer);
+      startAuto();
+    }
+
+    document.getElementById('next').addEventListener('click', () => { next(); resetAuto(); });
+    document.getElementById('prev').addEventListener('click', () => { prev(); resetAuto(); });
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => { goTo(+dot.dataset.index); resetAuto(); });
+    });
+
+    startAuto();
+  </script>
+
+</body>
+</html>
