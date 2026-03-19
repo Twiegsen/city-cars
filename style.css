@@ -38,7 +38,9 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  /* min-height statt height – damit das mobile Klappmenü aufgehen kann */
+  min-height: 64px;
+  flex-wrap: wrap;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -1068,11 +1070,9 @@ footer span {
 }
 
 @media (max-width: 800px) {
+  /* Navigation auf schmalen Screens: Hamburger-Menü aktiv */
   nav {
     padding: 0 20px;
-    flex-wrap: wrap;
-    height: auto;
-    min-height: 64px;
   }
 
   .nav-toggle {
